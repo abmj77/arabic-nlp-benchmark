@@ -1,0 +1,5 @@
+Task,ROUGE-1,ROUGE-L,Total,Evaluated,Accuracy,F1
+Text Generation,0.3333333333333333,0.3333333333333333,3,3.0,,
+Summarization,1.0,1.0,3,3.0,,
+Sentiment,,,3,,1.0,1.0
+QA,1.0,1.0,2,2.0,,

@@ -1,0 +1,34 @@
+=== Benchmark Metrics Report ===
+
+Text Generation Metrics:
+ROUGE-1: 0.3333333333333333
+ROUGE-L: 0.3333333333333333
+Total: 3
+Evaluated: 3.0
+Accuracy: nan
+F1: nan
+
+Summarization Metrics:
+ROUGE-1: 1.0
+ROUGE-L: 1.0
+Total: 3
+Evaluated: 3.0
+Accuracy: nan
+F1: nan
+
+Sentiment Metrics:
+ROUGE-1: nan
+ROUGE-L: nan
+Total: 3
+Evaluated: nan
+Accuracy: 1.0
+F1: 1.0
+
+QA Metrics:
+ROUGE-1: 1.0
+ROUGE-L: 1.0
+Total: 2
+Evaluated: 2.0
+Accuracy: nan
+F1: nan
+

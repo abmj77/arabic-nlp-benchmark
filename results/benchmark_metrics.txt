@@ -1,0 +1,6 @@
+=== Benchmark Metrics Report ===
+
+Text Generation: Total=3, Errors=0, Success=3
+Sentiment: Total=3, Errors=0, Success=3
+Summarization: Total=3, Errors=2, Success=1
+QA: Total=2, Errors=2, Success=0
