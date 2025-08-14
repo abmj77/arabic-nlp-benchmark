@@ -3,12 +3,12 @@ import pandas as pd
 import os
 from evaluate_benchmark import evaluate_text_generation, evaluate_summarization, evaluate_sentiment, evaluate_qa
 
-# تأكد أن مجلد النتائج موجود
+# Ensure the results directory exists
 os.makedirs("results", exist_ok=True)
 
 report_data = []
 
-# تقييم كل مهمة
+# Evaluate each task
 print("Evaluating Text Generation...")
 text_gen_metrics = evaluate_text_generation("results/text_generation_results.csv")
 report_data.append({"Task": "Text Generation", **text_gen_metrics})
@@ -25,10 +25,10 @@ print("Evaluating QA...")
 qa_metrics = evaluate_qa("results/qa_results.csv")
 report_data.append({"Task": "QA", **qa_metrics})
 
-# تحويل البيانات إلى DataFrame
+# Convert the data to a DataFrame
 df_report = pd.DataFrame(report_data)
 
-# حفظ التقرير كـ CSV و TXT
+# Save the report as CSV and TXT
 df_report.to_csv("results/benchmark_report.csv", index=False)
 with open("results/benchmark_report.txt", "w", encoding="utf-8") as f:
     f.write("=== Benchmark Metrics Report ===\n\n")

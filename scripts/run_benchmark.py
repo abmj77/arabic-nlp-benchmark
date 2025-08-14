@@ -4,12 +4,12 @@ from transformers import AutoModelForCausalLM, AutoTokenizer
 from transformers import AutoModelForSequenceClassification
 from transformers import T5ForConditionalGeneration, T5Tokenizer
 
-# === إعداد المسارات ===
+# === Set up paths ===
 datasets_dir = "datasets"
 results_dir = "results"
 os.makedirs(results_dir, exist_ok=True)
 
-# === تحميل النماذج ===
+# === Load models ===
 # 1. Text Generation
 gen_model_name = "aubmindlab/aragpt2-base"
 gen_tokenizer = AutoTokenizer.from_pretrained(gen_model_name)
@@ -25,7 +25,7 @@ t5_model_name = "UBC-NLP/AraT5-base"
 t5_tokenizer = T5Tokenizer.from_pretrained(t5_model_name, legacy=False)
 t5_model = T5ForConditionalGeneration.from_pretrained(t5_model_name)
 
-# === الدوال لكل مهمة ===
+# === Functions for each task ===
 def run_generation(model, tokenizer, text):
     inputs = tokenizer.encode(text, return_tensors="pt")
     outputs = model.generate(
@@ -67,7 +67,7 @@ def run_qa(model, tokenizer, question, context):
     )
     return tokenizer.decode(outputs[0], skip_special_tokens=True)
 
-# === تنفيذ المهام ===
+# === Run tasks ===
 benchmark_metrics = {}
 
 # 1. Text Generation
@@ -122,7 +122,7 @@ for _, row in df_qa.iterrows():
 pd.DataFrame(qa_results).to_csv(os.path.join(results_dir, "qa_results.csv"), index=False)
 benchmark_metrics["QA"] = {"Total": len(df_qa), "Errors": sum(1 for r in qa_results if str(r["output"]).startswith("🚫")), "Success": sum(1 for r in qa_results if not str(r["output"]).startswith("🚫"))}
 
-# === إنشاء تقرير Benchmark Metrics ===
+# === Create Benchmark Metrics Report ===
 report_path = os.path.join(results_dir, "benchmark_metrics.txt")
 with open(report_path, "w", encoding="utf-8") as f:
     f.write("=== Benchmark Metrics Report ===\n\n")

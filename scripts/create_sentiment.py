@@ -1,6 +1,6 @@
 import pandas as pd
 
-# مثال بيانات عربية
+# Example Arabic data
 data = {
     "text": [
         "هذا الفيلم كان مذهلاً",
@@ -18,7 +18,7 @@ data = {
     ]
 }
 
-# تحويل إلى DataFrame وحفظ كـ CSV
+# Convert to DataFrame and save as CSV
 df = pd.DataFrame(data)
 df.to_csv("../datasets/sentiment.csv", index=False, encoding="utf-8-sig")
 

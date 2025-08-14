@@ -51,7 +51,7 @@ def evaluate_summarization(file_path):
 
 def evaluate_sentiment(file_path):
     df = pd.read_csv(file_path)
-    # استخدام predicted إذا موجود، وإلا استخدام output
+    # Use 'predicted' if available, otherwise use 'output'
     y_true = df['output'].astype(int)
     if 'predicted' in df.columns:
         y_pred = df['predicted'].astype(int)
